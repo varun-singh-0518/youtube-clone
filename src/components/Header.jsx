@@ -14,6 +14,7 @@ import {Context} from "../context/contextAPI";
 import Loader from "../shared/loader";
 
 const Header = () => {
+  // creating a state to manage the search input field's value
   const [searchQuery, setSearchQuery] = useState("");
 
   const {loading, mobileMenu, setMobileMenu} = useContext(Context);
@@ -22,6 +23,8 @@ const Header = () => {
 
   const searchQueryHandler = (event) => {
     if (
+      // It checks if the "Enter" key is pressed or if the event is "searchButton" and the search query is not empty.
+      // If the conditions are met, it navigates to a search result page with the provided search query.
       (event?.key === "Enter" || event === "searchButton") &&
       searchQuery?.length > 0
     ) {
@@ -33,8 +36,10 @@ const Header = () => {
     setMobileMenu(!mobileMenu);
   };
 
-  const {pathname} = useLocation();
+  const {pathname} = useLocation(); // to obtain the current patname using useLocation hook.
   // ? is optional chaining
+  //Splitting the pageName into an array using "/" as the delimiter.
+  //Selecting the first element in the resulting array, which represents the page name.
   const pageName = pathname?.split("/")?.filter(Boolean)?.[0];
 
   return (
@@ -71,9 +76,9 @@ const Header = () => {
           <input
             type="text"
             className=" bg-transparent outline-none text-white pr-5 pl-5 md:pl-0 w-44 md:group-focus-within:pl-0 md:w-64 lg:w-[500px]"
-            onChange={(e) => setSearchQuery(e.target.value)}
+            onChange={(e) => setSearchQuery(e.target.value)} //It sets up an event handler that updates the searchQuery state based on the input's value.
             onKeyUp={searchQueryHandler}
-            value={searchQuery}
+            value={searchQuery} //It binds the value of the input to the searchQuery state
           />
         </div>
         <button

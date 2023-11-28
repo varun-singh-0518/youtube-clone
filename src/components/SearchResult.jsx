@@ -19,6 +19,7 @@ const SearchResult = () => {
     setLoading(true);
     fetchDataFromApi(`search/?q=${searchQuery}`).then((res) => {
       console.log(res);
+      // after receiving the response , it sets the result state with the content received.
       setResult(res?.contents);
       setLoading(false);
     });
@@ -29,8 +30,10 @@ const SearchResult = () => {
       <LeftNav />
       <div className="grow w-[calc(100%-240px)] h-full overflow-y-auto bg-black">
         {result?.map((item) => {
+          // if the type of item is not video , it returns false
           if (item?.type !== "video") return false;
 
+          // extracting the video property of item in a variable.
           let video = item?.video;
           return <SearchResultVideoCard key={video?.videoId} video={video} />;
         })}

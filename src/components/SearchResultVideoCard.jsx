@@ -6,6 +6,7 @@ import VideoLength from "../shared/videoLength";
 
 const SearchResultVideoCard = ({video}) => {
   return (
+    // It creates a link to a specific video using the videoId from the video prop.
     <Link to={`/video/${video.videoId}`}>
       <div className="flex flex-col md:flex-row mb-8 md:mb-3 lg:hover:bg-white/[0.1] rounded-xl md:p-4">
         <div className="relative flex shrink-0 h-48 md:h-28 lg:h-40 xl:h-48 w-full md:w-48 lg:w-64 xl:w-80 rounded-xl bg-slate-800 overflow-hidden">
@@ -13,6 +14,9 @@ const SearchResultVideoCard = ({video}) => {
             className=" h-full w-full object-cover"
             src={video?.thumbnails?.[0]?.url}
           />
+          {/* It checks if the video has a lengthSeconds property and, if so,
+          renders the VideoLength component with the video length passed as a
+          prop. */}
           {video?.lengthSeconds && <VideoLength time={video?.lengthSeconds} />}
         </div>
         <div className="flex flex-col ml-4 md:ml-6 mt-4 md:mt-0 overflow-hidden">
@@ -40,11 +44,13 @@ const SearchResultVideoCard = ({video}) => {
               </span>
               <div className="flex text-sm font-semibold text-white/[0.7] truncate overflow-hidden">
                 <span>
+                  {/* The abbreviateNumber function is used to format the view count,  The 2 as the second argument to abbreviateNumber specifies that the number should be abbreviated to at most 2 decimal places.  */}
                   {`${abbreviateNumber(video?.stats?.views, 2)} views`}{" "}
                 </span>
                 <span className="flex text-[24px] leading-none font-bold text-white/[0.7] relative top-[-10px] mx-1">
                   .
                 </span>
+                {/* The video?.publishedTimeText property is used to fetch the published time, and the truncate class ensures that the text is truncated if it overflows its container. */}
                 <span className="truncate">{video?.publishedTimeText}</span>
               </div>
             </div>

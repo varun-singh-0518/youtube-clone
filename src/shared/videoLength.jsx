@@ -1,6 +1,9 @@
 import React from "react";
+
+// moment library is used for working with dates and times.
 import moment from "moment";
 
+// It takes a single prop, time, which represents the length of the video in seconds.
 const VideoLength = ({time}) => {
   const videoLengthInSeconds = moment()
     .startOf("day")

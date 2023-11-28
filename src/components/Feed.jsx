@@ -5,7 +5,6 @@ import VideoCard from "./VideoCard";
 
 const Feed = () => {
   const {loading, searchResults} = useContext(Context);
-  // console.log(searchResults);
 
   useEffect(() => {
     document.getElementById("root").classList.remove("custom-h");
@@ -16,6 +15,11 @@ const Feed = () => {
       <LeftNav />
       <div className="grow w-[calc(100%-240px)] h-full overflow-y-auto bg-black">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-5">
+          {/*  It checks if the loading state is false and if searchResults is
+          defined. 
+           It also checks if the item has a type of "video." If these
+          conditions are met, it renders a VideoCard component with a unique key
+          and the video data from the searchResults array. */}
           {!loading &&
             searchResults &&
             searchResults?.map((item) => {

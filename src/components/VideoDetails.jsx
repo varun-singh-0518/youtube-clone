@@ -44,6 +44,8 @@ const VideoDetails = () => {
       <div className="w-full max-w-[1200px] flex flex-col lg:flex-row">
         <div className="flex flex-col lg:w-[calc(100%-350px)] xl:w-[calc(100%-400px)] px-4 py-3 lg:py-6 overflow-y-auto ">
           <div className=" h-[200px] md:h-[400px] lg:h-[400px] xl:h-[550px] ml-[-16px] lg:ml-0 mr-[-16px] lg:mr-0">
+            {/* It embeds the YouTube video player using the ReactPlayer component. 
+               It specifies the URL using the id parameter, sets player controls, dimensions, background color, and autoplays the video. */}
             <ReactPlayer
               url={`https://www.youtube.com/watch?v=${id}`}
               controls
@@ -77,6 +79,7 @@ const VideoDetails = () => {
                   )}
                 </div>
 
+                {/* for displaying subscribers count */}
                 <div className="text-white/[0.7] text-sm">
                   {video?.author?.stats?.subscribersText}
                 </div>

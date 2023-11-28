@@ -10,6 +10,8 @@ const LeftNav = () => {
 
   const navigate = useNavigate();
 
+  // It checks the type of the clicked item and takes different actions based on the type:
+  // If the type is "category" or "home," it calls setSelectCategories(name) to update the selected category.
   const clickHandler = (name, type) => {
     switch (type) {
       case "category":
@@ -26,7 +28,7 @@ const LeftNav = () => {
   return (
     <div
       className={`md:block w-[240px] overflow-y-auto h-full py-4 bg-black absolute md:relative z-10 translate-x-[-240px] md:translate-x-0 transition-all ${
-        mobileMenu ? "translate-x-0.5" : ""
+        mobileMenu ? "translate-x-1" : ""
       }`}
     >
       <div className="flex px-5 flex-col ">
