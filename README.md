@@ -52,14 +52,13 @@ Start the server
 ```
 
 
+## Acknowledgements
+
+ - This project is inspired by the YouTube platform and aims to provide a simplified version of its functionality for learning purposes.
+- UI design and layout inspiration from YouTube.
 # Hi, I'm Varun! 👋
 
 
 ## 🚀 About Me
 I'm a full stack developer...
 
-
-## Acknowledgements
-
- - This project is inspired by the YouTube platform and aims to provide a simplified version of its functionality for learning purposes.
-- UI design and layout inspiration from YouTube.
